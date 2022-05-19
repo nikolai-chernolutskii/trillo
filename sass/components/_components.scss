@@ -99,7 +99,7 @@
         border-radius: 50%;
         background-color: $color-primary;
         color: #fff;
-        
+
         position: absolute;
         top: 1.5rem;
         right: 1.1rem;
@@ -118,9 +118,31 @@
 
 ////////////////////////////////////////
 // SIDE NAVIGATION
+.side-nav {
+    &__item {
+    }
+
+    &__link:link,
+    &__link:visited {
+    }
+
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor;
+    }
+}
 
 ////////////////////////////////////////
 // LEGAL TEXT
+.legal {
+    display: block;
+    font-size: 1.2rem;
+    color: $color-grey-light-4;
+    text-align: center;
+    padding: 2.5rem;
+}
 
 ////////////////////////////////////////
 // GALLERY
