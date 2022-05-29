@@ -176,7 +176,7 @@ a {
     height: 1.75rem;
     fill: #eb2f64; }
     .overview__icon-location {
-      margin-right: .5rem; }
+      margin-right: 0.5rem; }
   .overview__location {
     font-size: 1.2rem;
     display: flex;
@@ -208,7 +208,7 @@ a {
   padding-bottom: 2px;
   display: inline-block;
   cursor: pointer;
-  transition: all .2s; }
+  transition: all 0.2s; }
   .btn-inline:hover {
     color: #333;
     outline: none;
@@ -224,6 +224,55 @@ a {
   100% {
     transform: scale(1);
     box-shadow: none; } }
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem; }
+
+.list {
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: 1px solid #f4f2f2;
+  border-bottom: 1px solid #f4f2f2;
+  display: flex;
+  flex-wrap: wrap; }
+  .list__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem; }
+    .list__item::before {
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.7rem;
+      /* Older browsers */
+      /* Newer browsers - masks */
+      background-color: #eb2f64;
+      -webkit-mask-image: url(../img/chevron-thin-right.svg);
+      -webkit-mask-size: cover;
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover; }
+
+.recommend {
+  font-size: 1.3rem;
+  color: #999;
+  display: flex;
+  align-items: center; }
+  .recommend__count {
+    margin-right: auto; }
+  .recommend__friends {
+    display: flex; }
+  .recommend__photo {
+    box-sizing: content-box;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    transition: transform .2s; }
+    .recommend__photo:not(:last-child) {
+      margin-right: -2rem; }
+    .recommend__photo:hover {
+      z-index: 10;
+      transform: scale(1.15); }
 
 .container {
   max-width: 120rem;
@@ -252,6 +301,23 @@ a {
   justify-content: space-between; }
 
 .hotel-view {
-  height: 80rem;
   background-color: #fff;
+  flex: 1; }
+
+.detail {
+  padding: 4.5rem;
+  font-size: 1.4rem;
+  display: flex;
+  background-color: #faf9f9;
+  border-bottom: 1px solid #f4f2f2; }
+
+.description {
+  background-color: #fff;
+  flex: 0 0 60%;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+  padding: 3rem;
+  margin-right: 4.5rem; }
+
+.user-reviews {
+  background-color: aquamarine;
   flex: 1; }
