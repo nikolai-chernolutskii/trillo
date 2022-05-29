@@ -140,7 +140,7 @@
             transform: scaleY(0);
             transition: transform 0.2s, width 0.2s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
         }
-        
+
         &:hover::before,
         &--active::before {
             // Check out smooth transition on unhover
@@ -188,14 +188,12 @@
 ////////////////////////////////////////
 // GALLERY
 .gallery {
-
     display: flex;
 
     &__item {
         overflow: hidden;
     }
 
-    
     &__photo {
         width: 100%;
         /* To avoid having a small white space underneath the image if we leave it as an inline element */
@@ -234,7 +232,7 @@
         fill: $color-primary;
 
         &-location {
-            margin-right: .5rem;
+            margin-right: 0.5rem;
         }
     }
 
@@ -246,7 +244,7 @@
 
     &__rating {
         background-color: $color-primary;
-        color:#fff;
+        color: #fff;
         margin-left: 3rem;
         padding: 0 2.25rem;
         align-self: stretch;
@@ -280,7 +278,7 @@
     padding-bottom: 2px;
     display: inline-block;
     cursor: pointer;
-    transition: all .2s;
+    transition: all 0.2s;
 
     &:hover {
         color: $color-grey-dark-1;
@@ -291,29 +289,97 @@
 
 @keyframes pulsate {
     0% {
-        transform:  scale(1);
+        transform: scale(1);
         box-shadow: none;
     }
-    
+
     50% {
         transform: scale(1.05);
         box-shadow: $shadow-btn;
     }
-    
+
     100% {
-        transform:  scale(1);
+        transform: scale(1);
         box-shadow: none;
     }
 }
 
 ////////////////////////////////////////
 // PARAGRAPH
+.paragraph:not(:last-of-type) {
+    margin-bottom: 2rem;
+}
 
 ////////////////////////////////////////
 // LIST
+.list {
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: $line;
+    border-bottom: $line;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        flex: 0 0 50%;
+        margin-bottom: 0.7rem;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            height: 1rem;
+            width: 1rem;
+            margin-right: 0.7rem;
+
+            /* Older browsers */
+            // background-image: url(../img/chevron-thin-right.svg);
+            // background-size: cover;
+
+            /* Newer browsers - masks */
+            background-color: $color-primary;
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+        }
+    }
+}
 
 ////////////////////////////////////////
 // RECOMMEND
+.recommend {
+    font-size: 1.3rem;
+    color: $color-grey-dark-3;
+    display: flex;
+    align-items: center;
+
+    &__count {
+        margin-right: auto;
+    }
+
+    &__friends {
+        display: flex;
+    }
+
+    &__photo {
+        box-sizing: content-box;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        transition: transform .2s;
+
+        &:not(:last-child) {
+            margin-right: -2rem;
+        }
+
+        &:hover {
+            z-index: 10;
+            transform: scale(1.15);
+        }
+    }
+}
 
 ////////////////////////////////////////
 // REVIEWS
