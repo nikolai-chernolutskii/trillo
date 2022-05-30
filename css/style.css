@@ -325,7 +325,10 @@ a {
 
 .cta {
   padding: 3.5rem 0;
-  text-align: center; }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
   .cta__book-now {
     font-size: 2rem;
     font-weight: 300;
