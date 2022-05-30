@@ -24,6 +24,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include respond(phone-sm) {
+        flex-wrap: wrap;
+        align-content: stretch;
+        height: 11rem;
+    }
 }
 
 .content {
@@ -59,6 +65,10 @@
     @include respond(tab-port) {
         padding: 3rem;
     }
+
+    @include respond(phone) {
+        flex-direction: column;
+    }
 }
 
 .description {
@@ -71,6 +81,11 @@
     @include respond(tab-port) {
         padding: 2rem;
         margin-right: 3rem;
+    }
+    
+    @include respond(phone) {
+        margin-right: 0;
+        margin-bottom: 3rem;
     }
 }
 
