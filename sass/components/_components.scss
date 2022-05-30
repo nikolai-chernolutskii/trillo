@@ -14,12 +14,17 @@
     justify-content: center;
     align-items: center;
 
+    @include respond(phone-sm) {
+        order: 1;
+        flex: 0 0 100%;
+    }
+    
     &__input {
         font-family: inherit;
         font-size: inherit;
         color: inherit;
         background-color: $color-grey-light-2;
-
+        
         border: none;
         padding: 0.7rem 2rem;
         margin-right: -3.25rem;
@@ -34,6 +39,10 @@
 
             & + .search__button {
                 background-color: $color-grey-light-3;
+            }
+
+            @include respond(phone-sm) {
+                width: 90%;
             }
         }
 
@@ -122,11 +131,24 @@
     font-size: 1.4rem;
     margin-top: 3.5rem;
 
+    @include respond(tab-port) {
+        display: flex;
+        margin: 0;
+    }
+
     &__item {
         position: relative;
 
+        @include respond(tab-port) {
+            flex: 1;
+        }
+
         &:not(:last-child) {
             margin-bottom: 0.5rem;
+
+            @include respond(tab-port) {
+                margin: 0;
+            }
         }
 
         &::before {
@@ -143,7 +165,6 @@
 
         &:hover::before,
         &--active::before {
-            // Check out smooth transition on unhover
             transform: scaleY(1);
             width: 100%;
         }
@@ -164,14 +185,31 @@
 
         display: flex;
         align-items: center;
-    }
 
+        @include respond(tab-port) {
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        @include respond(phone) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
+    }
+    
     &__icon {
         width: 1.75rem;
         height: 1.75rem;
         margin-right: 2rem;
         /* Color of the current element or the parent element */
         fill: currentColor;
+
+        @include respond(phone) {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0;
+            margin-bottom: 0.7rem;
+        }
     }
 }
 
@@ -183,6 +221,10 @@
     color: $color-grey-light-4;
     text-align: center;
     padding: 2.5rem;
+
+    @include respond(tab-port) {
+        display: none;
+    }
 }
 
 ////////////////////////////////////////
@@ -219,6 +261,16 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @include respond(phone) {
+            font-size: 1.8rem;
+            padding: 1.25rem 2rem;
+        }
+        
+        @media only screen  and (max-width: 415px) {
+            font-size: 1.2rem;
+            padding: 1rem 1rem;
+        }
     }
 
     &__stars {
@@ -254,15 +306,43 @@
         justify-content: center;
         align-items: center;
 
+        @include respond(phone) {
+            padding: 0 1.5rem;
+        }
+        
+        @include respond(phone) {
+            margin-left: 1.5rem
+        }
+        
+        @media only screen and (max-width: 415px) {
+            margin-left: 1rem
+        }
+
         &-average {
             font-size: 2.25rem;
             font-weight: 300;
             margin-bottom: -3px;
+
+            @include respond(phone) {
+                font-size: 1.8rem;
+            }
+            
+            @media only screen and (max-width: 340px) {
+                font-size: 1.5rem;
+            }
         }
 
         &-count {
-            font-size: 0.8rem;
+            font-size: .8rem;
             text-transform: uppercase;
+            
+            @include respond(phone) {
+                font-size: .5rem;
+            }
+
+            @include respond(phone-sm) {
+                text-align: center;
+            }
         }
     }
 }
@@ -279,7 +359,7 @@
     display: inline-block;
     cursor: pointer;
     transition: all 0.2s;
-    
+
     & span {
         margin-left: 3px;
         transition: all 0.2s;
@@ -342,15 +422,19 @@
             margin-right: 0.7rem;
 
             /* Older browsers */
-            // background-image: url(../img/chevron-thin-right.svg);
-            // background-size: cover;
+            background-image: url(../img/chevron-thin-right.svg);
+            background-size: cover;
 
             /* Newer browsers - masks */
-            background-color: $color-primary;
-            -webkit-mask-image: url(../img/chevron-thin-right.svg);
-            -webkit-mask-size: cover;
-            mask-image: url(../img/chevron-thin-right.svg);
-            mask-size: cover;
+            @supports (-webkit-mask-image: url()) or (mask-image:url()) {
+                background-color: $color-primary;
+                -webkit-mask-image: url(../img/chevron-thin-right.svg);
+                -webkit-mask-size: cover;
+                mask-image: url(../img/chevron-thin-right.svg);
+                mask-size: cover;
+                background-image: none;
+            }
+
         }
     }
 }
@@ -399,6 +483,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @include respond(tab-port) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &::before {
         content: "\201C";
@@ -462,6 +551,18 @@
     justify-content: center;
     align-items: center;
 
+    @include respond(tab-port) {
+        padding: 2.5rem 0;
+    }
+
+    @include respond(phone) {
+        text-align: center;
+    }
+
+    @include respond(phone-sm) {
+        padding: 2.5rem 2.5rem;
+    }
+
     &__book-now {
         font-size: 2rem;
         font-weight: 300;
@@ -486,7 +587,7 @@
         display: inline-block;
         height: 100%;
         width: 100%;
-        transition: all .2s;
+        transition: all 0.2s;
     }
 
     &__visible {
